@@ -26,3 +26,15 @@ export const addProductController = async (req, res) => {
     }
 
 }
+
+//for update
+export const updateProductController = async (req, res) => {
+    try {
+
+        await Product.findOneAndUpdate({_id: req.body.productId}, req.body, {new: true})
+        res.status(201).json("Product Updated!");
+    } catch(error) {
+        res.status(400).send(error);
+        console.log(error);
+    }
+}
