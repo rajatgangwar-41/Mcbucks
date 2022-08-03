@@ -4,6 +4,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
+import productRouter from './routes/productsRoutes.js';
 
 dotenv.config();
 
