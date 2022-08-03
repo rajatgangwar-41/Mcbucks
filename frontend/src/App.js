@@ -4,6 +4,10 @@ import './App.css';
 import Home from './pages/home/Home';
 import Products from './pages/products/Products';
 import Cart from './pages/cart/Cart';
+import Login from './pages/login/Login';
+import Register from './pages/register/Register';
+import Bills from './pages/bills/Bills';
+import Customers from './pages/customers/Customers';
 
 function App() {
   return (
@@ -25,6 +29,18 @@ function App() {
               <Cart />
             </ProtectedRouter>
             } />
+            <Route path="/bills" element={
+            <ProtectedRouter>
+              <Bills />
+            </ProtectedRouter>
+            } />
+            <Route path="/customers" element={
+            <ProtectedRouter>
+              <Customers />
+            </ProtectedRouter>
+            } />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </Router>
     </>
@@ -32,3 +48,11 @@ function App() {
 }
 
 export default App;
+
+export function ProtectedRouter({children}) {
+  if(localStorage.getItem("auth")) {
+    return children;
+  } else {
+    return <Navigate to="/login" />
+  }
+}
