@@ -24,9 +24,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(morgan("dev"));
 
 //routes
-app.get("/",(req,res) => {
-      res.send("Mcbucks testing server by Rajat Gangwar");
-});
+app.use('/api/products/', productRouter);
 
 //Create Port 
 const PORT = process.env.PORT || 5000;
