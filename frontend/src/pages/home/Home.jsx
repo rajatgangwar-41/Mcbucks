@@ -1,11 +1,14 @@
 import React from 'react'
+import LayoutApp from '../../components/Layout'
 
-const Products = () => {
+const Home = () => {
     return (
       <div>
-        Products
+        <LayoutApp/>
+        Home
+       <LayoutApp/>
       </div>
     )
 }
 
-export default Products
+export default Home
